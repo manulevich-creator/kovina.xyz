@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kovina — портфолио учителя</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #151823;
+      --text: #e6e6eb;
+      --accent: #7c8cff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #111633, var(--bg));
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      margin: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+    header p {
+      max-width: 600px;
+      opacity: .85;
+      animation: fadeUp 1.3s ease forwards;
+    }
+    .accent { color: var(--accent); }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: linear-gradient(180deg, #1b1f35, var(--card));
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(40px);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(124,140,255,.25), transparent 60%);
+      opacity: 0;
+      transition: .4s;
+    }
+    .card:hover::before { opacity: 1; }
+    .card:hover { transform: translateY(-6px) scale(1.02); }
+    .card h3 { margin-top: 0; }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), #5d6bff);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      opacity: .6;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kovina<span class="accent">.xyz</span></h1>
+    <p>Современное портфолио учителя. Образование, которое вдохновляет и даёт результат.</p>
+  </header>
+
+  <section>
+    <h2>Обо мне</h2>
+    <p>Я учитель, который сочетает классическое образование, современные методики и технологии. Мои уроки — это вовлечение, понимание и уверенность учеников.</p>
+  </section>
+
+  <section>
+    <h2>Методические проекты</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Интерактивные уроки</h3>
+        <p>Авторские методики, визуальные объяснения, работа с мотивацией учеников.</p>
+      </div>
+      <div class="card">
+        <h3>Презентации и пособия</h3>
+        <p>Материалы для начальной и средней школы с упором на понимание.</p>
+      </div>
+      <div class="card">
+        <h3>Проекты учеников</h3>
+        <p>Результаты обучения: работы, достижения, рост.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Контакты</h2>
+    <p>Email: teacher@kovina.xyz</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Kovina.xyz</p>
+  </footer>
+</body>
+</html>
