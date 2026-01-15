@@ -3,136 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kovina — портфолио учителя</title>
+  <title>Kovina — персональный бренд учителя</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0b0d12;
-      --card: #151823;
-      --text: #e6e6eb;
-      --accent: #7c8cff;
+    :root{
+      --bg:#0a0c14;
+      --card:#141826;
+      --text:#e9e9f1;
+      --muted:#a0a3c4;
+      --accent:#7c8cff;
+      --accent2:#9b6bff;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #111633, var(--bg));
-      color: var(--text);
-      overflow-x: hidden;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:radial-gradient(circle at top,#141a40,var(--bg));
+      color:var(--text);
+      overflow-x:hidden;
     }
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
+    header{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px 20px;
     }
-    header h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      margin: 0;
-      animation: fadeUp 1s ease forwards;
+    header h1{
+      font-size:clamp(2.8rem,6vw,4.5rem);
+      margin:0;
+      font-weight:800;
+      animation:fadeUp 1s ease forwards;
     }
-    header p {
-      max-width: 600px;
-      opacity: .85;
-      animation: fadeUp 1.3s ease forwards;
+    header p{
+      max-width:720px;
+      opacity:.85;
+      margin-top:20px;
+      font-size:1.1rem;
+      animation:fadeUp 1.4s ease forwards;
     }
-    .accent { color: var(--accent); }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: auto;
+    .accent{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent}
+    section{padding:90px 20px;max-width:1200px;margin:auto}
+    h2{font-size:2.4rem;margin-bottom:30px}
+    p{line-height:1.7;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+    .card{
+      background:linear-gradient(180deg,#1b2040,var(--card));
+      border-radius:22px;
+      padding:32px;
+      position:relative;
+      overflow:hidden;
+      transform:translateY(40px);
+      opacity:0;
+      animation:fadeUp 1s ease forwards;
     }
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top left,rgba(124,140,255,.35),transparent 60%);
+      opacity:0;
+      transition:.4s
     }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+    .card:hover::before{opacity:1}
+    .card:hover{transform:translateY(-8px) scale(1.03)}
+    .badge{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(124,140,255,.15);color:#cdd3ff;font-size:.8rem;margin-bottom:14px}
+    .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
+    .num{font-size:3rem;font-weight:800}
+    .cta{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      padding:80px 20px;
+      border-radius:32px;
+      text-align:center;
     }
-    .card {
-      background: linear-gradient(180deg, #1b1f35, var(--card));
-      border-radius: 20px;
-      padding: 30px;
-      position: relative;
-      overflow: hidden;
-      transform: translateY(40px);
-      opacity: 0;
-      animation: fadeUp 1s ease forwards;
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(124,140,255,.25), transparent 60%);
-      opacity: 0;
-      transition: .4s;
-    }
-    .card:hover::before { opacity: 1; }
-    .card:hover { transform: translateY(-6px) scale(1.02); }
-    .card h3 { margin-top: 0; }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      color: #fff;
-      text-decoration: none;
-      background: linear-gradient(135deg, var(--accent), #5d6bff);
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      opacity: .6;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+    .cta h2{color:#fff}
+    footer{text-align:center;padding:40px;opacity:.6}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+  /* extra animations */
+.reveal{opacity:0;transform:translateY(60px);transition:1s}
+.reveal.active{opacity:1;transform:translateY(0)}
+.parallax{background:linear-gradient(135deg,rgba(124,140,255,.15),rgba(155,107,255,.15));backdrop-filter:blur(12px)}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Kovina<span class="accent">.xyz</span></h1>
-    <p>Современное портфолио учителя. Образование, которое вдохновляет и даёт результат.</p>
-  </header>
 
-  <section>
-    <h2>Обо мне</h2>
-    <p>Я учитель, который сочетает классическое образование, современные методики и технологии. Мои уроки — это вовлечение, понимание и уверенность учеников.</p>
-  </section>
+<header>
+  <h1>Kovina<span class="accent">.xyz</span></h1>
+  <p>Персональный бренд учителя нового поколения. Образование, которое <strong>запоминается</strong>, вдохновляет и даёт результат.</p>
+</header>
 
-  <section>
-    <h2>Методические проекты</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Интерактивные уроки</h3>
-        <p>Авторские методики, визуальные объяснения, работа с мотивацией учеников.</p>
-      </div>
-      <div class="card">
-        <h3>Презентации и пособия</h3>
-        <p>Материалы для начальной и средней школы с упором на понимание.</p>
-      </div>
-      <div class="card">
-        <h3>Проекты учеников</h3>
-        <p>Результаты обучения: работы, достижения, рост.</p>
-      </div>
+<section>
+  <h2>Кто я</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="badge">Философия</span>
+      <h3>Учитель, которому доверяют</h3>
+      <p>Я соединяю классическое образование, психологию обучения и современные технологии, чтобы ученики понимали, а не заучивали.</p>
     </div>
-  </section>
+    <div class="card">
+      <span class="badge">Подход</span>
+      <h3>Объясняю сложно — просто</h3>
+      <p>Каждый урок построен так, чтобы ребёнок почувствовал уверенность и интерес уже с первых минут.</p>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <h2>Контакты</h2>
-    <p>Email: teacher@kovina.xyz</p>
-  </section>
+<section>
+  <h2>Методика</h2>
+  <div class="grid">
+    <div class="card"><h3>Визуальное мышление</h3><p>Схемы, образы, примеры из жизни.</p></div>
+    <div class="card"><h3>Интерактив</h3><p>Диалог, практика, вовлечение каждого ученика.</p></div>
+    <div class="card"><h3>Результат</h3><p>Понимание темы, а не страх ошибок.</p></div>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2026 Kovina.xyz</p>
-  </footer>
+<section>
+  <h2>Результаты учеников</h2>
+  <div class="numbers">
+    <div><div class="num">+60%</div><p>рост уверенности</p></div>
+    <div><div class="num">95%</div><p>понимание материала</p></div>
+    <div><div class="num">100%</div><p>вовлечённость</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Проекты</h2>
+  <div class="grid">
+    <div class="card"><h3>Авторские презентации</h3><p>Для начальной и средней школы.</p></div>
+    <div class="card"><h3>Методические пособия</h3><p>Готовые решения для уроков.</p></div>
+    <div class="card"><h3>Ученические проекты</h3><p>Рост и реальные достижения.</p></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Образование может быть другим</h2>
+  <p style="color:#fff">Если учитель — это личность и бренд.</p>
+</section>
+
+<section>
+  <h2>Контакты</h2>
+  <p>Email: teacher@kovina.xyz<br>Telegram / Школа / Сотрудничество</p>
+</section>
+
+<footer>
+  © 2026 Kovina.xyz — персональный бренд учителя
+</footer>
+
 </body>
 </html>
